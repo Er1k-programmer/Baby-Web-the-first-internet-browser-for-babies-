@@ -1,4 +1,5 @@
-                BABY WEB 🌎  
+              BABY WEB 🌎  
+                
        🔴🟠🟡🟢🔵🟣🟤🟣🔵🟢🟡🟠🔴
 🇬🇧
 Welcome to the Baby Web Project, the first internet browser ever created for babies.
@@ -17,4 +18,5 @@ el acceso se limita a sitios web diseñados específicamente para bebés,
 
 y se recomienda contar siempre con la presencia de un adulto o utilizar controles parentales.
 
+     
         🔴🟠🟡🟢🔵🟣🟤🟣🔵🟢🟡🟠🔴
