@@ -1,5 +1,5 @@
 
-   🔴🟠🟡🟢🔵🟣  BABY WEB 🌎  🟣🔵🟢🟡🟠🔴
+   🔴🟠🟡🟢🔵🟣    BABY WEB 🌎     🟣🔵🟢🟡🟠🔴
 
 🇬🇧
 Welcome to the Baby Web Project, the first internet browser ever created for babies.
