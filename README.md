@@ -9,7 +9,7 @@ access is restricted to websites specifically designed for babies,
 and it is recommended that an adult or parental controls are always present. 
 
 🇪🇦
-Bienvenidos al proyecto Baby Web,el primer navegador de Internet creado para bebés.
+Bienvenidos al proyecto Baby Web, el primer navegador de Internet creado para bebés.
 
 En Baby Web, se puede acceder a conocimientos, juegos, vídeos y mucho más.
 
