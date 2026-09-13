@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="description" content="Baby Web 🌎 — child-friendly access to selected websites with parental notices.">
+  <title>Baby Web 🌎</title>
+  <style>
+    :root{
+      --red:#ef4444;--orange:#f97316;--yellow:#facc15;--green:#22c55e;
+      --blue:#3b82f6;--purple:#8b5cf6;--ink:#243047;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+      color:var(--ink); overflow-x:hidden;
+      background:linear-gradient(180deg,#6dd5fa 0%,#c9f5ff 56%,#b8ef8a 100%);
+    }
+    body:before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.22;
+      background-image:radial-gradient(#fff 1.5px,transparent 1.5px);
+      background-size:24px 24px;
+    }
+    header{text-align:center;padding:26px 16px 12px}
+    h1{
+      display:inline-block; margin:0; padding:8px 24px; border-radius:28px;
+      background:#fff; font-size:clamp(2.2rem,8vw,4.5rem); line-height:1;
+      font-weight:900; letter-spacing:-2px; box-shadow:0 8px 24px #2b587733;
+    }
+    .baby{color:var(--red)} .web{color:var(--blue)}
+    .earth{filter:saturate(1.2)}
+    .subtitle{margin:14px auto 0;font-weight:700;font-size:1.05rem}
+    main{max-width:1100px;margin:0 auto;padding:18px 16px 48px}
+    .grid{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:16px}
+    .card{
+      border:0;border-radius:30px;padding:18px 12px 16px;min-height:290px;
+      color:#fff;cursor:pointer;position:relative;overflow:hidden;
+      box-shadow:0 10px 0 #0002,0 18px 28px #24527a33;
+      transition:transform .15s ease,box-shadow .15s ease;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+      font:inherit;
+    }
+    .card:hover{transform:translateY(-5px);box-shadow:0 15px 0 #0002,0 22px 34px #24527a44}
+    .card:active{transform:translateY(2px);box-shadow:0 5px 0 #0002}
+    .card:focus-visible{outline:5px solid #fff;outline-offset:3px}
+    .red{background:linear-gradient(145deg,#ff5555,#df1717)}
+    .orange{background:linear-gradient(145deg,#ff9a2e,#f15b0b)}
+    .yellow{background:linear-gradient(145deg,#ffe64d,#f0b800);color:#513900}
+    .green{background:linear-gradient(145deg,#46df69,#07983c)}
+    .purple{background:linear-gradient(145deg,#a77aff,#6829c7)}
+    .icon{font-size:4.5rem;line-height:1;margin-bottom:14px}
+    .label{font-size:1.55rem;font-weight:900}
+    .site{font-size:.95rem;font-weight:700;margin-top:6px;opacity:.94}
+    .notice{
+      margin-top:14px;padding:10px 9px;border-radius:16px;background:#ffffffdc;color:#18202e;
+      font-size:.82rem;font-weight:800;line-height:1.2;
+    }
+    .parents-box{margin-top:20px;text-align:center}
+    .install{
+      border:0;border-radius:18px;background:#fff;color:#5b21b6;padding:12px 18px;
+      font-weight:900;font-size:1rem;cursor:pointer;box-shadow:0 5px 0 #0002;
+    }
+    .install[hidden]{display:none}
+    .footer{text-align:center;font-size:.82rem;font-weight:700;opacity:.8;margin-top:24px}
+    dialog{
+      width:min(92vw,560px);border:0;border-radius:28px;padding:0;
+      box-shadow:0 25px 80px #10204066;background:#fff;color:var(--ink);
+    }
+    dialog::backdrop{background:#16213a99;backdrop-filter:blur(3px)}
+    .modal{padding:26px}
+    .modal h2{margin:0 0 12px;font-size:1.7rem}
+    .modal p{line-height:1.5;font-weight:650}
+    .modal .warning{background:#fff2c7;border-radius:18px;padding:14px;margin:15px 0}
+    .actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+    .btn{border:0;border-radius:15px;padding:12px 16px;font-weight:900;cursor:pointer}
+    .cancel{background:#e8edf5}.go{background:#7c3aed;color:#fff}
+    .parent-menu{display:grid;gap:12px;margin-top:18px}
+    .setting{padding:15px;border-radius:18px;background:#f3f5fa;font-weight:750}
+    .setting strong{display:block;margin-bottom:4px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){
+      .grid{grid-template-columns:1fr 1fr;gap:12px}
+      .card{min-height:220px;border-radius:24px}.icon{font-size:3.6rem}.label{font-size:1.25rem}
+      .site{font-size:.82rem}.notice{font-size:.75rem}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1><span class="baby">Baby</span> <span class="web">Web</span> <span class="earth">🌎</span></h1>
+  <div class="subtitle">A simple space designed for children to browse with their parents</div>
+</header>
+
+<main>
+  <section class="grid" aria-label="Main menu">
+    <button class="card red" data-url="https://www.youtubekids.com/" data-warning="true" data-title="YouTube Kids">
+      <div class="icon">📺</div><div class="label">Videos</div><div class="site">YouTube Kids</div>
+      <div class="notice">Parents: please review the content children watch.</div>
+    </button>
+
+    <button class="card orange" data-url="https://www.starfall.com/">
+      <div class="icon">🧩</div><div class="label">Games</div><div class="site">Starfall</div>
+    </button>
+
+    <button class="card yellow" data-url="https://colorear-online.com/">
+      <div class="icon">🖍️</div><div class="label">Drawing</div><div class="site">Coloring Online</div>
+    </button>
+
+    <button class="card green" data-url="https://es.wikipedia.org/" data-warning="true" data-title="Wikipedia">
+      <div class="icon">📚</div><div class="label">Information</div><div class="site">Wikipedia</div>
+      <div class="notice">Parents: please review the content children watch.</div>
+    </button>
+
+    <button class="card purple" id="parentsButton">
+      <div class="icon">🚸</div><div class="label">Parents</div><div class="site">Special menu</div>
+    </button>
+  </section>
+
+  <div class="parents-box">
+    <button id="installBtn" class="install" hidden aria-hidden="true">📲 Instalar Baby Web</button>
+  </div>
+  <div class="footer">Baby Web 🌎 · No search bar.</div>
+</main>
+
+<dialog id="warningDialog">
+  <div class="modal">
+    <h2>👨‍👩‍👧‍👦 Parents notice</h2>
+    <div class="warning"><strong>Parents: please review the content children watch.</strong></div>
+    <p>You are leaving Baby Web to open <strong id="warningTitle"></strong>. Please supervise the content before and during use.</p>
+    <div class="actions">
+      <button class="btn cancel" id="warningCancel">Cancel</button>
+      <button class="btn go" id="warningGo">Continue</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="parentsDialog">
+  <div class="modal">
+    <h2>🚸 Parents menu</h2>
+    <p>When using this service, you must stay with the children at all times and enable parental controls for this service to work.</p>
+    <div class="parent-menu">
+      <div class="setting"><strong>👀 Supervision</strong>An adult must stay with the child while using the service.</div>
+      <div class="setting"><strong>🔒 Parental controls</strong>Enable parental controls on external services before using them.</div>
+      <div class="setting"><strong>🌎 Browsing</strong>Baby Web has no search bar and only shows the selected shortcuts.</div>
+    </div>
+    <div class="actions" style="margin-top:18px">
+      <button class="btn go" id="parentsClose">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const warningDialog = document.getElementById('warningDialog');
+  const parentsDialog = document.getElementById('parentsDialog');
+  let pendingUrl = '';
+
+  document.querySelectorAll('.card[data-url]').forEach(card => {
+    card.addEventListener('click', () => {
+      pendingUrl = card.dataset.url;
+      if (card.dataset.warning === 'true') {
+        document.getElementById('warningTitle').textContent = card.dataset.title;
+        warningDialog.showModal();
+      } else {
+        window.location.href = pendingUrl;
+      }
+    });
+  });
+
+  document.getElementById('warningCancel').onclick = () => warningDialog.close();
+  document.getElementById('warningGo').onclick = () => {
+    warningDialog.close();
+    window.location.href = pendingUrl;
+  };
+
+  document.getElementById('parentsButton').onclick = () => parentsDialog.showModal();
+  document.getElementById('parentsClose').onclick = () => parentsDialog.close();
+
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault(); deferredPrompt = e; installBtn.hidden = false;
+  });
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null; installBtn.hidden = true;
+  });
+
+</script>
+</body>
+</html>
