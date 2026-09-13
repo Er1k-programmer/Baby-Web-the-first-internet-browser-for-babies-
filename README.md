@@ -1,3 +1,6 @@
+
+   🔴🟠🟡🟢🔵🟣  BABY WEB 🌎  🟣🔵🟢🟡🟠🔴
+
 🇬🇧
 Welcome to the Baby Web Project, the first internet browser ever created for babies.
 In Baby Web, you can access knowledge, games, videos, and more.
